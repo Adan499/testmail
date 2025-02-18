@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 export const revalidate = 10;
 
 import React from 'react'
