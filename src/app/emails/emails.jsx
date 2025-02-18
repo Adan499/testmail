@@ -2,6 +2,25 @@
 import React, { useState } from 'react'
 import { CalendarDaysIcon, UserCircleIcon } from '@heroicons/react/20/solid'
 
+// Helper function to convert URLs to clickable links
+function linkify(text) {
+  return text.split(/(https?:\/\/[^\s]+)/g).map((part, index) => {
+    return part.match(/https?:\/\/[^\s]+/) ? (
+      <a
+        key={index}
+        href={part}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-500 underline"
+      >
+        {part}
+      </a>
+    ) : (
+      part
+    );
+  });
+}
+
 export default function Emails({ data }) {
   const [pageSize, setPageSize] = useState(5)
   
@@ -41,7 +60,7 @@ export default function Emails({ data }) {
                     <span className="sr-only">Message</span>
                   </dt>
                   <dd className="text-xs sm:text-sm text-gray-500 whitespace-pre-line line-clamp-3">
-                    {email.text}
+                    {linkify(email.text)}
                   </dd>
                 </div>
               </dl>
@@ -57,9 +76,8 @@ export default function Emails({ data }) {
               onChange={(e) =>
                 setPageSize(e.target.value === "all" ? Infinity : parseInt(e.target.value))
               }
-              className="text-xs sm:text-sm border-gray-300 rounded"
+              className="text-xs sm:text-sm p-1 border-gray-300 rounded"
             >
-         
               <option value={5}>5</option>
               <option value={10}>10</option>
               <option value={20}>20</option>
