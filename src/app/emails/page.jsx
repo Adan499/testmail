@@ -1,3 +1,5 @@
+export const revalidate = 10;
+
 import React from 'react'
 import axios from 'axios'
 import EmailHeader from './EmailHeader'

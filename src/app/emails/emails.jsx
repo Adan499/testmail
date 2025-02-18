@@ -18,7 +18,7 @@ export default function Emails({ data }) {
               <dl className="flex flex-wrap">
                 <div className="flex-auto pl-4 sm:pl-6 pt-4 sm:pt-6">
                   <dt className="text-xs sm:text-sm font-semibold text-gray-900">From</dt>
-                  <dd className="mt-1 text-sm sm:text-base   text-gray-900">{email.from}</dd>
+                  <dd className="mt-1 text-xs sm:text-base font-semibold text-gray-900">{email.from}</dd>
                 </div>
                 <div className="mt-4 sm:mt-6 flex w-full flex-none gap-x-4 border-t border-gray-900/5 px-4 sm:px-6 pt-4 sm:pt-6">
                   <dt className="flex-none">
