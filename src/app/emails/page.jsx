@@ -14,7 +14,8 @@ async function fetchEmails() {
       livequery: 'true'
     },
     headers: {
-      'Authorization': 'Bearer 4b6c7a40-17bb-4904-a2a6-e031480cf677'
+      'Authorization': 'Bearer 4b6c7a40-17bb-4904-a2a6-e031480cf677',
+      'Cache-Control': 'no-cache, no-store, must-revalidate'
     }
   });
   return res.data;
@@ -24,11 +25,11 @@ export default async function Page() {
   const data = await fetchEmails();
 
   return (
-    <div className=' bg-gray-100'>
+    <div className='bg-gray-100'>
       <EmailHeader />
-     <div className='md:w-9/12 w-full  mx-auto mt-3'>
-     <Emails data={data} />
-     </div>
+      <div className='md:w-9/12 w-full mx-auto mt-3'>
+        <Emails data={data} />
+      </div>
     </div>
   );
 }
